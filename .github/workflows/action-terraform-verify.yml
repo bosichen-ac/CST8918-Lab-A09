@@ -49,4 +49,7 @@ jobs:
           done
       - name: Process check
         if: always()
-        run: exit $CHECK_STATUS
+        run: |
+          if [[ "${{ env.CHECK_STATUS }}" == "1" ]]; then
+            exit 1
+          fi
