@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/bosichen-ac/CST8918-Lab-A09#readme",
   "devDependencies": {
-    "husky": "^8.0.0"
+    "husky": "^9.1.7"
   }
 }

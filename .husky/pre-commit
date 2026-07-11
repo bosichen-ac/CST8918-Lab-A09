@@ -1,3 +1,8 @@
+#!/usr/bin/env sh
+set -e
+
+cd infrastructure
+
 terraform fmt -check -recursive
 terraform validate
 tflint
