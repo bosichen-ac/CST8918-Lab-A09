@@ -1,4 +1,4 @@
-name: Validate terraform fmt
+name: Validate terraform
 on:
   pull_request:
     branches:
@@ -36,3 +36,22 @@ jobs:
               terraform fmt -check "$changed_file"
             fi
           done
+  
+  terraform-validate:
+    runs-on: ubuntu-latest
+    name: terraform validate
+
+    defaults:
+      run:
+        working-directory: infrastructure
+        
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configure terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.2.4
+      - name: Terraform Init
+        run: terraform init
+      - name: Terraform Validate
+        run: terraform validate
